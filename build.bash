@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -f ./Dockerfile ]; then
+if [ -f ./Dockerfile ] && [ $1 == '-f' ]; then
   export docker_root=`pwd`
   if [ ! -f ./files/2600-0.txt ]; then
     mkdir files
