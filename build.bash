@@ -1,7 +1,8 @@
 #!/bin/bash
+IMAGE_EXISTS="$(docker images -q data-lit 2> /dev/null)"
 
-if [ -f ./Dockerfile ] && [[ $1 == '-f' ]]; then
-  export docker_root=`pwd`
+if [ -f ./Dockerfile ]; then
+  docker_root=`pwd`
   if [ ! -f ./files/2600-0.txt ]; then
     mkdir files
     cd ./files
@@ -9,9 +10,12 @@ if [ -f ./Dockerfile ] && [[ $1 == '-f' ]]; then
     wget https://www.gutenberg.org/files/2600/2600-0.txt
     cd ${docker_root}
   fi
-  docker build --tag data-lit .
+  if [[ ! ${IMAGE_EXISTS} ]] || [[ $1 == '-f' ]]; then
+    docker build --tag data-lit .
+  fi
 else
-  echo "Image exists and no '-f' to override.  Starting container."
+  echo "You must be in the directory with the Dockerfile."
+  exit
 fi
 
 # Run the container; note that it gets destroyed every time so make sure any files exist in /root/files
