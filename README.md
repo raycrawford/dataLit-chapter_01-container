@@ -6,5 +6,8 @@ The workflow creates a container and mounts a directory `files` into the contain
 
 # Use
 
-To use this workflow, clone the repo to your local file system.  Once there, replace the docker_root variable with the path that includes the Dockerfile found in this repo.
+To use this workflow, clone the repo to your local file system, cd into the repo and run `./build.bash`.  When done, you'll be in the running container... just make sure any files go in `/root/files` inside the container so you don't loose them when you exit.
 
+# Contributing
+
+If you'd like to suggest changes, just issue a PR.  Otherwise, do what you want with this repo... it's free with or without attribution...
