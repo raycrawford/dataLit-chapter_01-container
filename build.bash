@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -f ./Dockerfile ] && [ $1 == '-f' ]; then
+if [ -f ./Dockerfile ] && [[ $1 == '-f' ]]; then
   export docker_root=`pwd`
   if [ ! -f ./files/2600-0.txt ]; then
     mkdir files
@@ -10,8 +10,9 @@ if [ -f ./Dockerfile ] && [ $1 == '-f' ]; then
     cd ${docker_root}
   fi
   docker build --tag data-lit .
-  # Run the container; note that it gets destroyed every time so make sure any files exist in /root/files
-  docker run --rm --name data-lit -it -v ${docker_root}/files:/root/files data-lit
 else
-  echo "You must be in the root of the newly cloned repo.  Change directory to the path where the Dockerfile exists."
+  echo "Image exists and no '-f' to override.  Starting container."
 fi
+
+# Run the container; note that it gets destroyed every time so make sure any files exist in /root/files
+docker run --rm --name data-lit -it -v ${docker_root}/files:/root/files data-lit
