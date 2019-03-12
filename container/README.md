@@ -1,3 +1,8 @@
+# THERE ARE SECRETS
+
+There are secrets in the history of this repo.  Before it gets pushed anywhere besides a private git repo, make sure you rotate:
+- Twitter API keys
+
 # Purpose
 
 This is a super simple Docker workflow for doing the work found in Chapter 1, "Data Collection" of the School of AI's class, "Data Lit".  I set this up because I didn't like the idea of relying on a web-based interface as suggested in the course content ([Google Co Labs](https://colab.research.google.com), at least initially...) and I don't like installing things on my local machine.
