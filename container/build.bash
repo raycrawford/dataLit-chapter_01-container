@@ -20,3 +20,6 @@ fi
 
 # Run the container; note that it gets destroyed every time so make sure any files exist in /root/files
 docker run --rm --name data-lit -it -v ${docker_root}/files:/root/files data-lit
+
+# export docker_root='/Users/racrawford/workarea/personal/tutorial/learning/ml_learning/data_lit/'
+# docker run --rm --name data-lit -it -v ${docker_root}:/root/files data-lit:v1.1

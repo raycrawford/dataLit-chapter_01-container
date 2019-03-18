@@ -13,6 +13,11 @@ The workflow creates a container and mounts a directory `files` into the contain
 
 To use this workflow, clone the repo to your local file system, cd into the repo and run `./build.bash`.  When done, you'll be in the running container... just make sure any files go in `/root/files` inside the container so you don't loose them when you exit.
 
+## Creating Container
+export docker_root='/Users/racrawford/workarea/personal/tutorial/learning/ml_learning/data_lit/'
+docker run -it -it -v ${docker_root}:/root/files data-lit
+
+
 # Contributing
 
 If you'd like to suggest changes, just issue a PR.  Otherwise, do what you want with this repo... it's free with or without attribution...
